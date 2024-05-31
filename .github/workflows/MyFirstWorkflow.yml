@@ -8,7 +8,12 @@ jobs:
   first_job:
     name: My First Job
     runs-on: ubuntu-latest
-    steps: |
-        run: echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}."
-        run: echo "My secret is ${{ secrets.MY_SECRET }}"
+    steps:
+      - name: First Step
+        run: |
+          echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}."
+          echo "My secret is ${{ secrets.MY_SECRET }}"
+      - name: Checkout
+        uses: actions/checkout@v4.1.5
+      - run : tree
     
