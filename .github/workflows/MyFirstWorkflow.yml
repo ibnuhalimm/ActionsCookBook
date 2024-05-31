@@ -1,7 +1,7 @@
 name: My First Workflow
 on:
   push:
-    branches: 
+    branches:
       - master
   workflow_dispatch:
 jobs:
@@ -36,7 +36,7 @@ jobs:
           echo "My secret is '$sec'."
   Production:
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: Production
       url: https://writeabout.net
     needs: [Test, Load-Test]
@@ -45,6 +45,3 @@ jobs:
           echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}."
           sec=$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')
           echo "My secret is '$sec'."
-    
-      
-    
